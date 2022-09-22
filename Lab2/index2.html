@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2</title>
+    <style>
+        .calc {
+            display: grid;
+            width: 300px;
+            height: 400px;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(7, 1fr);
+        }
+        #scoreboard-field {
+            font-size: 32px;
+            text-align: center;
+            grid-column: 1/3;
+            cursor: default;
+        }
+        .btns{
+            font-size: 1.2rem;
+            color: whitesmoke;
+            background-color: rgb(80, 80, 80);
+        }
+        .btns:active {
+            background-color: rgb(120, 120, 120);
+        }
+        #enter-btn {
+            grid-row: 7/8;
+            grid-column: 1/4;
+        }
+    </style>
+</head>
+<body>
+    <form class="calc" name="calc" onsubmit="return false">
+        <input type="text" name="scoreboard" readonly id="scoreboard-field">
+        <input class="btns" type="reset" name="reset" id="reset-btn" value="RESET">
+
+        <button class="num-btn btns" value="1">1</button>
+        <button class="num-btn btns" value="2">2</button>
+        <button class="num-btn btns" value="3">3</button>
+        <button class="num-btn btns" value="4">4</button>
+        <button class="num-btn btns" value="5">5</button>
+        <button class="num-btn btns" value="6">6</button>
+        <button class="num-btn btns" value="7">7</button>
+        <button class="num-btn btns" value="8">8</button>
+        <button class="num-btn btns" value="9">9</button>
+        <button class="num-btn btns" value="0">0</button>
+
+        <button class="value-btn btns" value="+">+</button>
+        <button class="value-btn btns" value="-">-</button>
+        <button class="value-btn btns" value="*">*</button>
+        <button class="value-btn btns" value="/">/</button>
+        <button class="value-btn btns" value="%">%</button>
+
+        <input class="btns" type="submit" name="enter" value="ENTER" id="enter-btn" onclick="result()">   
+    </form>
+    
+    <script>
+        let field = document.querySelector("#scoreboard-field");
+        let numberOfBtn = document.querySelectorAll("button").length;
+        let btns = document.querySelectorAll(".num-btn, .value-btn");
+
+        for(let btn of btns) {
+            btn.addEventListener("click", function() {
+                field.value += this.value;
+            })
+        }
+
+        function result() {
+            field.value = eval(field.value);
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1</title>
+</head>
+<body onload="clockTimeAndDate()">
+    <form name="clockTimeAndDate">
+        <input type="text" name="clock" size="16" value=""><br>
+    </form>
+    
+    <script>
+        let clockTime, clockDate;
+
+        function clockTimeAndDate(){
+            // time
+            let time = new Date();
+            let hours = time.getHours();
+            let minutes = time.getMinutes();
+            let seconds = time.getSeconds();
+
+            clockTime = ((hours < 10) ? "0" : "") + hours;
+            clockTime += ((minutes < 10) ? "$0" : "$") + minutes;
+            clockTime += ((seconds < 10) ? "$0" : "$") + seconds;
+
+            //date
+            let date = new Date();
+            let year = date.getFullYear();
+            let month = date.getMonth() + 1;
+            let day = date.getDate();
+
+            clockDate = "" + year;
+            clockDate += ((month < 10) ? "$0" : "$") + month;
+            clockDate += ((day < 10) ? "$0" : "$") + day;
+
+            document.clockTimeAndDate.clock.value = clockTime + "-" + clockDate;
+
+            let timer = setTimeout("clockTimeAndDate()", 1000);
+        }
+    </script>
+
+</body>
+</html>

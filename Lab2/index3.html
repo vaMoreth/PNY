@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3</title>
+</head>
+<body>
+    Введіть кількість рядків: <input type="number" value="4" id="row"><br>
+    Введіть кількість стовпців: <input type="number" value="4" id="col"><br>
+    <input type="submit" id="buildTable" value="Побудувати матрицю">
+    <input type="submit" id="submit" value="Порахувати добуток останнього стовпця">
+
+    <script>
+        let buildTable = document.querySelector("#buildTable");
+        let evaluate = document.querySelector("#submit");
+        let arrSum = [];
+        
+        function createTable(col, row) {
+            let str = "";
+
+            for (let i = 0; i < row; i++) {
+                str += "\n<tr>";
+                    for(let j = 0; j < col; j++) {
+                        let val = 3*i + 2*j;
+                        if(col-1 === j) {
+                            arrSum.push(val);
+                        }
+                        str += '<td class="down">' + val + "<\/td>"
+                    }
+                    str += "\n<\/tr>"
+            }
+            return str;
+        }
+
+        let table = document.createElement("table");
+
+        buildTable.addEventListener("click", function() {
+            table.innerHTML = createTable(row.value, col.value);
+            document.body.appendChild(table);
+        });
+
+        evaluate.addEventListener("click", function() {
+            alert(arrSum.reduce((sum, el) => sum * el));
+        });
+
+    </script>
+</body>
+</html>
