@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6</title>
+</head>
+<body>
+    <form>
+        <input type="search" id="search" value="Євразія">
+        <button onClick = "info()">Густина і площа</button>
+        <button onClick = "population()">Населення</button>
+
+        <script>
+            let continents = [
+                {
+                    name : "Євразія",
+                    density : 100,
+                    square : 53450000
+                },
+                {
+                    name : "Північна Америка",
+                    density : 23,
+                    square : 24250000
+                },
+                {
+                    name : "Підвенна Америка",
+                    density : 22,
+                    square :  17800000
+                },
+                {
+                    name : "Австралія",
+                    density : 5,
+                    square : 8600000
+                },
+                {
+                    name : "Антарктида",
+                    density : 0,
+                    square : 13900000
+                },
+                {
+                    name : "Африка",
+                    density : 42,
+                    square : 30270000
+                }
+            ]
+            
+            function searchContinent() {
+                return continents.find( obj => obj.name.toLowerCase() === document.body.querySelector("#search").value.toLowerCase());
+            }
+            function population() {
+                let object = searchContinent();
+                alert(object.density * object.square + " - населення")
+            }
+
+            function info() {
+                alert(Object.entries(searchContinent()).join("\n").replaceAll(",", " : "));
+            }
+        </script>
+    </form>
+</body>
+</html>
