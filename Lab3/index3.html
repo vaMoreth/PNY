@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Завдання 3</title>
+</head>
+<body>
+	<form onsubmit="return false">
+		<input type="text" id="field">
+		<input type="reset" id="reset" value="RESET">
+		<button id="changeLang">alt+shift</button><div style="width: 270px;"></div>
+	</form>
+
+	<script>
+		const lettersUA = ["а", "б", "в", "г", "ґ", "д", "е", "є", "ж", "з", "и", "і", "ї", "й", "к", "л",
+            "м", "н", "о", "п", "р", "с", "т", "у", "ф", "х", "ц", "ч", "ш", "щ", "ь", "ю", "я", " "];
+
+		const lettersEN = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n",
+            "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "];
+
+		const btnChange = document.querySelector('#changeLang');
+
+		const keyboard = document.querySelector('div');
+
+		let check = true;
+
+		btnChange.addEventListener('click', () => {
+			if(check) {
+				addLetters(lettersUA);
+				check = false;
+			} else {
+				addLetters(lettersEN);
+				check = true;
+			}
+		});
+
+		function delBtns(buttons) {
+        buttons.forEach(btn => btn.remove());
+    }
+		
+		function addLetters(data) {
+			delBtns(document.querySelectorAll('input[type="button"]'));
+			for(let letter of data) {
+			let input = document.createElement('input');
+			input.value = letter;
+			input.type = 'button';
+			keyboard.appendChild(input);
+		}
+
+		const btns = document.querySelectorAll('input[type="button"]')
+		btns.forEach(btn => {
+			btn.addEventListener('click', () => {
+				field.value += btn.value;
+			})
+		});
+		}
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Завдання 6</title>
+	<style>
+		.show {
+			display: none;
+		}
+		.showList {
+			color: blue;
+		}
+	</style>
+</head>
+<body>
+	<a class="showList">Show Fruits</a>
+    <ul class="show">
+        <li>apple</li>
+        <li>pineapple</li>
+        <li>appricot</li>
+        <li>pear</li>
+        <li>lemon</li>
+    </ul>
+		<br>
+    <a class="showList">Show Vegetables</a>
+    <ul class="show">
+        <li>potatoes</li>
+        <li>beetroot</li>
+        <li>carrots</li>
+        <li>pear</li>
+    </ul>
+
+
+
+		<script>
+			const [aFruits, aVegetabes] = document.body.querySelectorAll('.showList');
+      const [ulFruits, ulVegetabes] = document.body.querySelectorAll('ul');
+
+
+        aFruits.addEventListener('click', () => ulFruits.classList.toggle('show'));
+        aVegetabes.addEventListener('click', () => ulVegetabes.classList.toggle('show'));
+		</script>
+</body>
+</html>

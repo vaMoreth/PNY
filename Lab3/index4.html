@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Завдання 4</title>
+</head>
+<body>
+	<button class="prev">Prev Move</button>
+	<button class="next">Next Move</button>
+	<br><img class="img" src="Img/1.png" style="width: 200px; height: 200px;">
+
+
+	<script>
+		let i = 1;
+		let path = 'Img/'
+		let photos = ['1.png', '2.png', '3.png', '4.png']
+	
+		const next = document.querySelector('.next');
+		const prev = document.querySelector('.prev');
+		const image = document.querySelector('.img')
+
+
+		next.addEventListener('click', () => {
+				if(i >= photos.length) i = 0;
+      	image.src = path + photos[i++];
+    });
+    prev.addEventListener('click', () => {
+      if(i < 1) i = 4;
+      image.src = path + photos[--i];
+    });
+
+	</script>
+</body>
+</html>

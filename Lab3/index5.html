@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Завдання 5</title>
+</head>
+<body>
+	<div class="example"></div>
+  <input type="number" class="res">
+  <button class="testing">Try!</button>
+
+
+	<script>
+		const example = document.querySelector('.example');
+		const inputResult = document.querySelector('.res');
+		const btnTesting = document.querySelector('.testing');
+
+		class GenerateExample {
+			constructor() {
+				this.first = randomNum();
+        this.second = randomNum();
+			}
+			result() {
+				return this.first * this.second;
+			}
+    }
+
+		let randomExample = new GenerateExample();
+		let results = [];
+
+		example.innerHTML = `${randomExample.first} * ${randomExample.second} `;
+
+		function randomNum() {
+			return Math.floor(Math.random() * 9) + 1;
+		}
+
+		function startTest(randomExample, start = 0) {
+      if(start === 9){
+        alert(`Результат - ${results.filter((x) => x === true).length * 10}%`);
+        results = [];
+        return;
+      }
+      const res = +inputResult.value;
+      if(randomExample.result() === res) {
+        return true;
+      }
+        return false;
+    }
+
+		btnTesting.addEventListener('click', () => {
+			example.innerHTML = `${randomExample.first} * ${randomExample.second} `;
+			results.push(startTest(randomExample, results.length));
+			randomExample = new GenerateExample();
+			example.innerHTML = `${randomExample.first} * ${randomExample.second} `;
+});
+	</script>
+</body>
+</html>

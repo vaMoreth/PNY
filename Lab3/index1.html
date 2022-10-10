@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Завдання 1</title>
+</head>
+<body>
+	<table>
+		<tr>
+				<td>Довжина</td>
+				<td><input onchange="calc()" value="5" type="number" id="lenght"></td>
+		</tr>
+		<tr>
+				<td>Ширина</td>
+				<td><input onchange="calc()" value="5" type="number" id="width"></td>
+		</tr>
+		<tr>
+				<td>Переметр</td>
+				<td id="perimeter"></td>
+		</tr>
+		<tr>
+				<td>Площа</td>
+				<td id="square"></td>
+		</tr>
+		<tr>
+				<td>Діагональ</td>
+				<td id="diagonal"></td>
+		</tr>
+</table>
+
+<script>
+	function calc() {
+		let inputFormWidth = document.body.querySelector("#width").value;
+		let inputFormLenght = document.body.querySelector("#lenght").value;
+
+		document.body.querySelector("#perimeter").innerHTML = 2 * (+inputFormLenght + +inputFormWidth);
+		document.body.querySelector("#square").innerHTML = inputFormLenght * inputFormWidth;
+		document.body.querySelector("#diagonal").innerHTML = Math.sqrt(inputFormLenght**2 + inputFormWidth**2);
+	}
+</script>
+</body>
+</html>
