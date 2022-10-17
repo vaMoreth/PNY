@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		.btnShow {
+			position: relative;
+			width: 300px; height: 50px;
+			left: 85vh; top: 45vh;
+			font-size: 2rem;
+			background-color: black;
+			color: white;
+		}
+		.btnFinish {
+			display: none;
+			position: relative;
+			width: 300px; height: 50px;
+			left: 85vh; top: 2vh;	
+			font-size: 2rem;
+			background-color: black;
+			color: white;
+		}
+		.btnShow:hover, .btnFinish:hover {
+			background-color: white;
+			color: black;
+			cursor: pointer;
+		}
+
+	</style>
+</head>
+<body>
+	<form id="generalForm" style="display: none;">
+		<fieldset class="choice">
+			<h2>Ви любите Україну?</h2>
+			<input type="radio" name="firstQuestion" value="Ukr"> Так :) <br>
+			<br><input type="radio" name="firstQuestion" value="Rus"> Ні :(<br>
+		</fieldset>
+
+		<fieldset class="choice">
+			<h2>Українська мова солов'їна?</h2>
+			<input type="radio" name="secondQuestion" value="Ukr"> Так :) <br>
+			<br><input type="radio" name="secondQuestion" value="Rus"> Ні :(<br>
+		</fieldset>
+
+		<fieldset class="choice">
+			<h2>Укажіть ваші любимі пісня(оберіть дві відповіді):</h2>
+		  <input type="checkbox" name="thirdQuestion" value="Ukr"> Україна переможе - Олександр Пономарьов <br>
+			<br><input type="checkbox" name="thirdQuestion" value="Rus"> Гимн Российской Федерации <br>
+			<br><input type="checkbox" name="thirdQuestion" value="Ukr"> Квітка - Океан Ельзи <br>
+			<br><input type="checkbox" name="thirdQuestion" value="Rus"> ЛП - Милана Хаметова и Milana Star<br>
+		</fieldset>
+
+		<fieldset class="choice">
+			<h2>Укажіть ваших любимих призедентів(оберіть дві відповіді):</h2>
+		  <input type="checkbox" name="fourthQuestion" value="Ukr"> Володимир Зеленський <br>
+			<br><input type="checkbox" name="fourthQuestion" value="Rus"> Леонід Брежнєв(лох) <br>
+			<br><input type="checkbox" name="fourthQuestion" value="Ukr"> Петро Порошенко <br>
+			<br><input type="checkbox" name="fourthQuestion" value="Rus"> Володимир Путін(лох)<br>
+		</fieldset>
+
+		<fieldset class="info">
+			<h2>Вкажіть своє ім'я:</h2>
+			<input type="text" name="fiveQuestion" placeholder="Василь" ><br><br>	
+		</fieldset>
+
+		<fieldset class="info">
+			<h2>Вкажіть свій номер телефону:</h2>
+			(+380) <input type="number" name="sixQuestion" placeholder="00-000-000"><br><br>
+		</fieldset>
+	</form>
+				<button id="end" class="btnFinish">Finish</button>
+        <button id="show" class="btnShow">Start</button>
+	
+				<script>
+					const btnShow = document.querySelector('#show');
+        	const btnFinish = document.querySelector('#end');
+
+					btnShow.addEventListener('click', () => {
+            document.querySelector('#generalForm').style.display = 'block';
+            document.querySelector('#show').style.display = 'none';
+						document.querySelector('#end').style.display = 'block'
+            btnResult.style.display = 'block';
+        });
+
+				function getSelected() {
+            return document.querySelectorAll('.choice input:checked');
+        }
+
+				function getPrivateInfo() {
+            return document.querySelectorAll('.info input');
+        }
+
+				function getValues(inputs) {
+            return Array.from(inputs, inp => inp.value);
+        }
+
+				function getResult(array){
+            return (array.length-2 < array.filter(el => el === 'Ukr').length) ? 'Ви справжній українець, вітаю💕' : `Ви українець на ${array.filter(el => el === 'Ukr').length*20}%`;
+        }
+
+				btnFinish.addEventListener('click', () => {
+            const selected = getValues(getSelected());
+            const [name, phone] = getValues(getPrivateInfo());
+
+
+            document.querySelector('#generalForm').style.display = 'none';
+            btnFinish.style.display = 'none';
+
+
+            const result = document.createElement('div');
+            result.innerHTML = `<h2>Результат</h2>Імя: ${name}<br>Телефон: ${phone}<br>${getResult(selected)}`;
+            document.body.prepend(result);
+        });
+				</script>
+</body>
+</html>
