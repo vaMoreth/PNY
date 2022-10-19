@@ -1,0 +1,58 @@
+body {
+	background-image: url(1.svg);
+	background-repeat:no-repeat; 
+	margin:10px;
+}
+
+.main-table {
+	width: 100%;
+	border: 3px solid black;
+	margin: auto;
+  border-spacing: 0px;
+  border-collapse: collapse;
+}
+
+.main-text-table {
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	font-size: 2rem;
+	padding: 15px;
+}
+
+.active {
+	background-color: black;
+	color: white;
+}
+
+.blured {
+	opacity: 50%;
+}
+
+p {
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	font-size: 1.2rem;
+	cursor: default;
+}
+
+a, a:active, a:after, a:hover {
+ color: black;
+ text-decoration: none;
+}
+
+#img-Ramon, #img-Eduard, #img-Max, #img-Nazar {
+	width: 70%;
+	margin-left: 50px;
+}
+
+#person1, #person2, #person3, #person4 {
+	padding: 15px;
+	border: 3px solid black;
+}
+
+#person1:hover, #person2:hover, #person3:hover, #person4:hover {
+	background-color: black;
+	color:  white;
+}
+
+#bio-Ramon,	#bio-Eduard, #bio-Max, #bio-Nazar {
+	display: none;
+}

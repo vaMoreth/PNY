@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style2.css">
+	<title>Завдання 2</title>
+</head>
+<body>
+	<table class="main-table">
+		<tr><th colspan="4" class="main-text-table">Мої одногрупники</th></tr>
+		<tr>
+			<td id="person1"><a href="javascript:tabSwitch('person1', 'bio-Ramon');">
+				<img id="img-Ramon" src="5.png"></a><p >Вінтоняк Роман Михайлович</p>
+			</td>
+			<td id="person2"><a href="javascript:tabSwitch('person2', 'bio-Eduard');">
+				<img id="img-Eduard" src="4.png"></a><p >Брилюк Едуард Олександрович</p>
+			</td>
+			<td id="person3"><a href="javascript:tabSwitch('person3', 'bio-Max');">
+				<img id="img-Max" src="3.png"></a><p>Волощук Максим Мирославович</p>
+			</td>
+			<td id="person4"><a href="javascript:tabSwitch('person4', 'bio-Nazar');">
+				<img id="img-Nazar" src="2.png"></a><p>Близнюк Назар Іванович</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="4" id="bio-Ramon">
+				<p>Вінтоняк Роман Михайлович</p>
+        <p>16.09.2003</p>
+        <p><a href="mailto:romanvintoniak03@gmail.com">Поштова скринька(клікабельно)</a></p>
+			</td>
+			<td colspan="4" id="bio-Eduard">
+				<p>Брилюк Едуард Олександрович</p>
+        <p>16.03.2004</p>
+        <p><a href="mailto:jummymoreth@gmail.com">Поштова скринька(клікабельно)</a></p>
+			</td>
+			<td colspan="4" id="bio-Max">
+				<p>Волощук Максим Мирославович</p>
+				<p>02.06.2004</p>
+				<p><a href="mailto:jummytrove1@gmail.com">Поштова скринька(клікабельно)</a></p>
+			</td>
+			<td colspan="4" id="bio-Nazar">
+				<p>Близнюк Назар Іванович</p>
+        <p>18.05.2004</p>
+        <p><a href="mailto:jummytrove2@gmail.com">Поштова скринька(клікабельно)</a></p>
+			</td>
+		</tr>
+	</table>
+
+	<script>
+		function tabSwitch(new_person, new_content) { 
+ 
+ 			document.getElementById('bio-Ramon').style.display = 'none'; 
+ 			document.getElementById('bio-Eduard').style.display = 'none'; 
+ 			document.getElementById('bio-Max').style.display = 'none'; 
+ 			document.getElementById('bio-Nazar').style.display = 'none'; 
+ 			document.getElementById(new_content).style.display = 'block';    
+
+ 			document.getElementById('person1').className = 'blured'; 
+ 			document.getElementById('person2').className = 'blured'; 
+ 			document.getElementById('person3').className = 'blured'; 
+ 			document.getElementById('person4').className = 'blured'; 
+ 			document.getElementById(new_person).className = 'active';          
+}
+	</script>
+</body>
+</html>

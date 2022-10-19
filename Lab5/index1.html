@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style1.css">
+	<title>Завдання 1</title>
+</head>
+<body>
+	<div id="general-box" class="tabbet-box">
+		<h4>Test Site <small>Select tab</small></h4>
+		<div class="tabbed-area">
+
+		<ul class="tabs">
+			<li><a href="javascript:tabSwitch('tab1', 'content1');" id="tab1" class="active">First</a></li>
+			<li><a href="javascript:tabSwitch('tab2', 'content2');" id="tab2">Second</a></li>
+			<li><a href="javascript:tabSwitch('tab3', 'content3');" id="tab3">Third</a></li>
+			</ul>
+
+			<div class="content" id="content1">
+				<ul>
+					<li><a href="#">Info 1<small>N posts</small></a></li>
+					<li><a href="#">Info 2<small>N posts</small></a></li>
+					<li><a href="#">Info 3<small>N posts</small></a></li>
+					<li><a href="#">Info 4<small>N posts</small></a></li>
+					<li><a href="#">Info 5<small>N posts</small></a></li>
+					<li><a href="#">Info 6<small>N posts</small></a></li>
+				</ul>
+			</div>
+
+			<div class="content" id="content2">
+				<ul>
+					<li><a href="#">Date 1<small>N posts</small></a></li>
+					<li><a href="#">Date 2<small>N posts</small></a></li>
+					<li><a href="#">Date 3<small>N posts</small></a></li>
+					<li><a href="#">Date 4<small>N posts</small></a></li>
+					<li><a href="#">Date 5<small>N posts</small></a></li>
+				</ul>
+			</div>
+
+			<div class="content" id="content3">
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Contact</a></li>
+					<li><a href="#">Adv</a></li>
+				</ul>
+			</div>
+
+		</div>
+
+		<div></div>
+
+	</div>
+
+	<script>
+		function tabSwitch(new_tab, new_content) { 
+ 
+ 			document.getElementById('content1').style.display = 'none'; 
+ 			document.getElementById('content2').style.display = 'none'; 
+ 			document.getElementById('content3').style.display = 'none'; 
+ 			document.getElementById(new_content).style.display = 'block';    
+
+ 			document.getElementById('tab1').className = ''; 
+ 			document.getElementById('tab2').className = ''; 
+ 			document.getElementById('tab3').className = ''; 
+ 			document.getElementById(new_tab).className = 'active';          
+}
+	</script>
+</body>
+</html>
