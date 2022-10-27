@@ -15,7 +15,7 @@
 
     <script>
         function no_zeros(array) {
-            return array.join('').replaceAll('0', '').split('').map(num => +num);
+            return array.join('').replaceAll('0', '').split(' ').map(num => +num);
         }
         show.addEventListener('click', () =>{
             result.innerHTML = no_zeros(getNum.value.split(' ').map(num => +num));
