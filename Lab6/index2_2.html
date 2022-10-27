@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Style/style.css">
+    <title>Завдання 2_2</title>
+</head>
+<body>
+	<form id="form" class="form">
+		<fieldset name="body">
+				<label for="name">Ім'я</label><input id="name" name="name" type="text">
+				<label for="surName">Прізвище</label><input id="surName" name="name" type="text">
+				<label for="login">Логін</label><input id="login" name="login" type="text">
+				<label for="pass">Пароль</label><input id="pass" name="password" type="password">
+				<label for="postNumber">Поштовий індекс</label><input id="postNumber" name="postNumber" type="text">
+				<label for="email" >Email</label><input id="email" name='email' type="text">
+		</fieldset>
+		<button id="submit" type="submit" class="btnSumbit">Логін</button>
+</form>
+
+		<script>
+			const source = 'Img/checkMark.png';
+
+			const regex = new Map([
+					['email' , /^ ([a-z0-9]+)(\.[a-z0-9]+)*@([a-z0-9]+)(\.[a-z0-9]+)*$/i],
+          ['name' , /^[A-ZА-Я]{1}[а-яa-z]+$/gm],
+          ['postNum' , /[0-9]{5}$/],
+          ['login' , /[a-zA-Z]{5}$/],
+          ['password' , /(?=.*\d)[\d\w]{6,}$/]
+			]);
+			const messages = new Map([
+            ['email' , 'Невірний email. Спробуйте, як тут: myemail@mail.com'],
+            ['name' , 'Ім`я повинен починатись з великої літери: "Василь Вінтоняк"'],
+            ['postNum' , 'Поштовий індекс повинен містити 5 цифр'],
+            ['login' , 'Логін повинен містити тільки 5 латинських літер'],
+            ['password' , 'Пароль повинен містити мінімум 6 символів (з яких мінімум одна буква й цифра)']
+        ]);
+
+				function checkMatch(reg, value) {
+            return value.match(reg) !== null;
+        }
+
+        const btnSubmit = document.querySelector('#submit');
+
+				form.addEventListener('submit', event => {
+					event.preventDefault();
+
+          for(const input of document.querySelectorAll('#form input')){
+            const prevEl = input.previousSibling;
+            const nextEl = input.nextSibling;
+            const img = document.createElement('img');
+            img.style.width = '15px';
+            img.src = source;
+
+            if(checkMatch(regex.get(input.name), input.value)) {
+              input.classList.remove('input-error');
+              if(prevEl.tagName !== 'IMG') input.before(img);
+              if(nextEl.tagName === 'DIV') nextEl.remove();
+            } else {
+              if(nextEl.tagName !== 'DIV') {
+              const errorDiv = document.createElement('div');
+              errorDiv.innerHTML = messages.get(input.name);
+              errorDiv.classList.add('div-error');
+              input.after(errorDiv);
+              input.classList.add('input-error');
+
+              if (prevEl.tagName === 'IMG') prevEl.remove();
+              }
+            }
+          }
+          return false;
+        })
+		</script>
+</body> 
+</html>

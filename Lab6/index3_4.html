@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Завдання 3.4</title>
+</head>
+<body>
+	<input type="text" id="getStr">
+	<button id="show">Показати</button>
+	<div id="result1"></div>
+	<div id="result2"></div>
+	
+	<script>
+		function replaceComma(string) {
+				return string.replaceAll(' ', ',');
+		}
+		
+		function replaceWords(string) {
+				let str = string.split(' '); 
+				[str[1], str[2]] = [str[2], str[1]]
+				return str.join(' ');
+		}
+
+		show.addEventListener('click', () =>{
+				result2.innerHTML = replaceComma(getStr.value);
+				result1.innerHTML = replaceWords(getStr.value);
+		})
+</script>
+</body>
+</html>
