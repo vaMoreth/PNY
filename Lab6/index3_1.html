@@ -13,7 +13,7 @@
 
     <script>
         function reverse_num() {
-            return getNum.value.split(' ').map((num) => +num).reverse().join('');
+            return getNum.value.split(' ').map((num) => +num).reverse().join(' ');
         }
         show.addEventListener('click', event => {
             result.innerHTML = reverse_num();
