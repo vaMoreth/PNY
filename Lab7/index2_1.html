@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Завдання 2.1</title>
+</head>
+<body>
+	<p></p>
+	<h1>Контент Сторінки</h1>
+	<a href="#" class="btn">Натисніть, щоб показати текст</a>
+	<div id="hide_text">Демонстраційний прихований текст</div>
+	<p></p>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(() => {
+			let text = $('#hide_text');
+			text.hide();
+
+			$('.btn').click(() => {
+				text.show(200)
+			});
+			
+			$('p:first').text('DOM first!');
+			$('p:last').text('DOM last!');
+		});
+	</script>
+</body>
+</html>

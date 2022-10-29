@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Завдання 3.3</title>
+	<style>
+		p {
+			font-size: 30px;
+		}
+	</style>
+</head>
+<body>
+	<p>Показати зображення</p>
+	<img src="">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+
+		$('p').click(() => {
+			$('img').attr('src', '1.jpeg')
+		});
+
+		$('img').click(() => {
+			$('img').attr('src', '')
+		});
+
+		$('img').mouseover(() => {
+			$('img').attr('title', 'Прапор України')
+		});
+
+		$('img').mouseout(() => {
+			$('img').attr('title', '')
+		});
+	</script>
+</body>
+</html>
