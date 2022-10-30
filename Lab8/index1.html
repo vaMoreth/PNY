@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Завдання 1</title>
+	<style>
+		* {
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	<hr>
+	<h1 align="center">Атрибут .html()</h1>
+
+	<button class="btn_1">Міняє контент на вкладці</button>
+	<p class="p_1">Це параграф</p>
+	<p class="p_1">А це інший параграф</p>
+ 	<br><hr><br>
+
+	<h1 align="center">Атрибут .css()</h1>
+	<p class="p_2">Колір змінено за допомогою JQuery</p>
+	<br><hr><br>
+
+	<h1 align="center">Атнрибут .val()</h1>
+	<p class="p_3">Ім'я: <input type="text" name="user"></p>
+	<button class="btn_3">Встанови автоматичне значення</button>
+	<br><hr><br>
+	<h1 align="center">Атнрибут .attr()</h1>
+	<ul>
+		<li><a href="" class="a_1">Приклад 1</a></li>
+		<li><a href="" class="a_2">Приклад 2</a></li>
+		<li><a href="" class="a_3">Приклад 3</a></li>
+		<li><a href="" class="a_4">Приклад 4</a></li>
+		<li><a href="" class="a_5">Приклад 5</a></li>
+	</ul>
+
+	<br><hr>
+
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+		// .html()
+  		$(".btn_1").click(() => {
+    		$(".p_1").html("Привіт Світ!");
+  		});
+
+		// .css()
+		$('.p_2').css('color', 'red');
+
+		// .val()
+		$(".btn_3").click(() => {
+    	$("input:text").val("Gachi Boy");
+  	});
+
+		//.attr()
+		$('.a_1').attr('href');
+
+		$('.a_2').attr('href', 'https://www.youtube.com/?gl=UA&hl=ru');
+
+		$('.a_3').attr({
+			href: 'https://www.youtube.com/?gl=UA&hl=ru',
+			alt: 'test'
+		});
+
+		$('.a_4').attr( "href", function( i, val ) {
+  		return val + " - site";
+		});
+
+		$('.a_5').removeAttr('href');
+	</script>
+</body>
+</html>

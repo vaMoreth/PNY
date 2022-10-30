@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Завдання 3</title>
+	<style>
+		* {
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	<hr><br>
+	<h1 align="center">Атрибут .content()</h1>
+	<div class="div1"><em>Привіт Світ! Що за прекрасний день!</em></div><br>
+	<button class="btn1">Тест 1</button><br>
+
+	<br><br><hr><br>
+
+	<h1 align="center">Атрибут .next()</h1>
+	<p class="p1">Перший параграф</p>
+	<p>Другий параграф</p>
+	<button class="btn2">Тест 2</button>
+	
+	<br><br><hr><br>
+
+	<h1 align="center">Атрибут .prevUntil()</h1>
+	<p class="pEnd">Перший параграф</p>
+	<p>Другий параграф</p>
+	<p>Третій параграф</p>
+	<p class="pStart">Четвертий параграф</p>
+	<button class="btn3">Тест 3</button>
+
+	<br><br><hr><br>
+
+	<h1 align="center">Атрибут .eq()</h1>
+	<p class="p4">Перший параграф index(0)</p>
+	<p class="p4">Другий параграф index(1)</p>
+	<p class="p4">Третій параграф index(2)</p>
+	<p class="p4">Четвертий параграф index(3)</p>
+	<button class="btn4">Тест 4</button>
+
+	<br><br><hr><br>
+
+	<h1 align="center">Атрибут .not()</h1>
+	<h2 class="h2_1">Перший параграф</h2>
+	<h2>Другий параграф</h2>
+	<h2>Третій параграф</h2>
+	<h2>Четвертий параграф</h2>
+	<button class="btn5">Тест 5</button>
+
+	<br><br><hr>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+		// .content()
+		$(".btn1").click(function(){
+    	$(".div1").contents().filter("em").wrap("<b/>");
+  	});
+
+		// .next()
+		$('.btn2').click(() => {
+			$('.p1').next().css('color', 'red');
+		});
+
+		// .prevUntil()
+		$('.btn3').click(() => {
+			$('.pStart').prevUntil('.pEnd').css('color', 'red');
+		});
+
+		// .eq()
+		$('.btn4').click(() => {
+			$(".p4").eq(1).css("background-color", "red");
+		});
+
+		// .not()
+		$('.btn5').click(() => {
+			$("h2:not(.h2_1)").css("background-color", "red");
+		});
+	</script>
+</body>
+</html>

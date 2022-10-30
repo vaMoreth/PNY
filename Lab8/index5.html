@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Завдання 5</title>
+	<style>
+		* {
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	<hr><br>
+	<h1 align="center">Атрибут .each()</h1>
+	<ul>
+		<li class="li1">Приклад 1</li>
+		<li class="li1">Приклад 2</li>
+		<li class="li1">Приклад 3</li>
+	</ul>
+	<button class="btn1">Приклад .each()</button>
+
+	<br><br><hr><br>
+
+	<h1 align="center">Атрибут .RemoveData()</h1>
+	<button class="btn2_1">Привіт Світ!</button>
+	<button class="btn2_2">Приклад .RemoveData()</button>
+
+	<br><br><hr>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+		// .each()
+		$('.btn1').click(() => {
+			$("li").each(function() {
+				alert($(this).text())
+			});
+		});
+
+		// .removeData()
+		$(".btn2_1").click(() => {
+    	$("div").data("greeting", "Привіт Світ!");
+      	alert("Вітання: " + $("div").data("greeting"));
+    });
+  	$(".btn2_2").click(() => {
+    	$("div").removeData("greeting");
+      	alert("Вітання: " + $("div").data("greeting"));
+		});
+	</script>
+</body>
+</html>

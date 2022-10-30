@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Завдання 2</title>
+	<style>
+		* {
+			font-size: 20px;
+		}
+
+		.div1 {
+			height: 100px;
+			width: 300px;
+			border: 2px solid black;
+			background-color:gold;
+		}
+
+		.div2, .div3 {
+			height: 100px;
+			width: 300px;
+			padding: 10px;
+			margin: 3px;
+			border: 2px solid blueviolet;
+			background-color: lightblue;
+		}
+
+	</style>
+</head>
+<body>
+	<hr>
+
+	<h1 align="center">Атрибут .before()</h1>
+	<button class="btn1">Додає текст перед параграфами</button>
+	<p class="p1">Це параграф</p>
+	<p class="p1">А це інший параграф</p>
+
+ 	<br><hr><br>
+
+	<h1 align="center">Атрибут .remove()</h1>
+	<div class="div1">
+			<p class="p2">Це параграф</p>
+			<p class="p2">А це інший параграф</p>
+	</div><br>
+	<button class="btn2">Видаляє div</button>
+
+	<br><br><hr><br>
+
+	<h1 align="center">Атрибут .height()</h1>
+	<div class="div2">
+	</div><br>
+	<button class="btn3">Показує висоту елемента div</button>
+
+	<br><br><hr><br>
+
+	<h1 align="center">Атрибут .outerWidth()</h1>
+	<div class="div3">
+	</div><br>
+	<button class="btn4">Показує загальну ширину елемента div</button>
+
+	<br><br><hr>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+		// .before()
+		$(".btn1").click(() => {
+    	$(".p1").before("<p>Привіт Світ!</p>");
+  	});
+
+		// .remove()
+		$(".btn2").click(() => {
+    	$(".div1").remove();
+  	});
+
+		// .height()
+		$(".btn3").click(() => {
+    	alert("Висота елемента div: " + $(".div2").height());
+  	});
+
+		// .outerWidth()
+		$(".btn4").click(() => {
+    	alert("Загальна довжина елемента div: " + $(".div3").outerWidth());
+  	});
+
+
+	</script>
+</body>
+</html>

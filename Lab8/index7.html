@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Завдання 7</title>
+	<style>
+		* {
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	<hr><br>
+	<h1 align="center">Атрибут .slideToggle()</h1>
+	<p class="p1">Параграф 1</p>
+	<button class="btn1">Сховати/Показати текст</button>
+
+	<br><br><hr><br>
+
+	<h1 align="center">Атрибут .fadeToggle()</h1>
+	<p class="p2">Параграф 2</p>
+	<button class="btn2">Тест 2</button>
+
+	<br><br><hr><br>
+
+	<h1 align="center">Атрибут .hide(); .show()</h1>
+	<p class="p3">Параграф 3</p>
+	<button class="btn3_1">Сховати</button>
+	<button class="btn3_2">Показати</button>
+
+	<br><br><hr>
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+		// .slideToggle()
+		$('.btn1').click(() => {
+			$('.p1').slideToggle();
+		});
+
+		// .fadeToggle()
+		$('.btn2').click(() => {
+			$('.p2').fadeToggle();
+		});
+
+
+		// .hide(); .show()
+		$('.btn3_1').click(() => {
+			$('.p3').hide();
+		});
+		$('.btn3_2').click(() => {
+			$('.p3').show();
+		});
+	</script>
+</body>
+</html>
