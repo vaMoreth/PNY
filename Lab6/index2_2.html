@@ -13,7 +13,7 @@
 	<form id="form" class="form">
 		<fieldset name="body">
 				<label for="name">Ім'я</label><input id="name" name="name" type="text">
-				<label for="surName">Прізвище</label><input id="surName" name="surname" type="text">
+				<label for="surname">Прізвище</label><input id="surname" name="surname" type="text">
 				<label for="login">Логін</label><input id="login" name="login" type="text">
 				<label for="pass">Пароль</label><input id="pass" name="password" type="password">
 				<label for="postNum">Поштовий індекс</label><input id="postNum" name="postNum" type="text">
@@ -26,20 +26,20 @@
 			const source = 'Img/checkMark.png';
 
 			const regex = new Map([
-					['email' , /^ ([a-z0-9]+)(\.[a-z0-9]+)*@([a-z0-9]+)(\.[a-z0-9]+)*$/i],
-          ['name' , /^[A-ZА-Я]{1}[а-яa-z]+$/gm],
-					['surname' , /^[A-ZА-Я]{1}[а-яa-z]+$/gm],
-          ['postNum' , /[0-9]{5}$/],
-          ['login' , /[a-zA-Z]{5}$/],
-          ['password' , /(?=.*\d)[\d\w]{6,}$/]
+					['email', /^([a-z0-9]+)(\.[a-z0-9]+)*@([a-z0-9]+)(\.[a-z0-9]+)*$/i],
+          ['name', /^([A-ZА-ЯІЇ]){1}([а-яіїa-z]+)$/],
+					['surname', /^([A-ZА-ЯІЇ]){1}([а-яіїa-z]+)$/],
+          ['postNum', /[0-9]{5}$/],
+          ['login', /[a-zA-Z]{5}$/],
+          ['password', /(?=.*\d)[\d\w]{6,}$/]
 			]);
 			const messages = new Map([
-            ['email' , 'Невірний email. Спробуйте, як тут: example@example.com'],
-            ['name' , 'Ім`я повинен починатись з великої літери: Василь'],
-						['surname' , 'Прізвище повинен починатись з великої літери: Вінтоняк'],
-            ['postNum' , 'Поштовий індекс повинен містити 5 цифр'],
-            ['login' , 'Логін повинен містити тільки 5 латинських літер'],
-            ['password' , 'Пароль повинен містити мінімум 6 символів (з яких мінімум одна буква й цифра)']
+            ['email', 'Невірний email. Спробуйте, як тут: example@example.com'],
+            ['name', 'Ім`я повинен починатись з великої літери: Василь'],
+						['surname', 'Прізвище повинен починатись з великої літери: Вінтоняк'],
+            ['postNum', 'Поштовий індекс повинен містити 5 цифр'],
+            ['login', 'Логін повинен містити тільки 5 латинських літер'],
+            ['password', 'Пароль повинен містити мінімум 6 символів (з яких мінімум одна буква й цифра)']
         ]);
 
 				function checkMatch(reg, value) {
@@ -75,7 +75,7 @@
             }
           }
           return false;
-        })
+        });
 		</script>
 </body> 
 </html>
