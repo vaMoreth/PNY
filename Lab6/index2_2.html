@@ -31,7 +31,7 @@
 					['surname' , /^[A-ZА-Я]{1}[а-яa-z]+$/gm],
           ['postNum' , /[0-9]{5}$/],
           ['login' , /[a-zA-Z]{5}$/],
-          ['password' , /(?\=\.\@*\d)[\d\w]{6,}$/]
+          ['password' , /(?=.*\d)[\d\w]{6,}$/]
 			]);
 			const messages = new Map([
             ['email' , 'Невірний email. Спробуйте, як тут: example@example.com'],
